@@ -16,11 +16,15 @@ const fetchFiles = () => {
         .then(res => res.forEach(item => {
             const imageDiv = document.createElement('div');
             const image = document.createElement('img');
+            const imageName = document.createElement('h3')
+            imageName.classList.add('image-name')
+            imageName.textContent = item.name;
             image.classList.add('file-image')
             imageDiv.classList.add('image-div')
             image.src = item.url;
             image.addEventListener('click', classSelect);
             imageDiv.appendChild(image);
+            imageDiv.appendChild(imageName);
             filesDiv.appendChild(imageDiv);
         }))               
 }
