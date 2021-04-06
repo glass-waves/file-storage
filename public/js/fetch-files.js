@@ -10,6 +10,11 @@ const classSelect = (e) => {
     e.target.classList.add('selected-file');
 }
 
+const navigateToImage = (id) => {
+    window.location = `../single.html?id=${id}`
+
+}
+
 const fetchFiles = () => {
     filesDiv.textContent = '';
     fetch('/api/v1/upload/files')
@@ -25,6 +30,7 @@ const fetchFiles = () => {
             image.setAttribute('id', item.id)
             image.src = item.url;
             image.addEventListener('click', classSelect);
+            image.addEventListener('dblclick', () => navigateToImage(item.id))
             imageDiv.appendChild(image);
             imageDiv.appendChild(imageName);
             filesDiv.appendChild(imageDiv);
