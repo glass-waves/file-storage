@@ -1,6 +1,7 @@
 const filesDiv = document.getElementById('file-div');
 
 const classSelect = (e) => {
+    console.log(e.target.parentNode)
     const files = document.querySelectorAll('.file-image');
     const filesArr = Array.from(files);
     filesArr.forEach(node => {
@@ -21,6 +22,7 @@ const fetchFiles = () => {
             imageName.textContent = item.name;
             image.classList.add('file-image')
             imageDiv.classList.add('image-div')
+            image.setAttribute('id', item.id)
             image.src = item.url;
             image.addEventListener('click', classSelect);
             imageDiv.appendChild(image);
